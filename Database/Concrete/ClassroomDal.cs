@@ -12,16 +12,16 @@ namespace TurkcellHighSchoolManagerSystem.Database.Concrete
 {
     public class ClassroomDal : DalRepo<ClassRoom>, IClassroomDal
     {
-        public static List<ClassRoom> list = Data.Classrooms;
-        public ClassroomDal():base(list)
+        public static List<ClassRoom> list;
+        public ClassroomDal(List<ClassRoom> _list):base(_list)
         {
-            
+            list = _list;
         }
 
         public ClassRoomDetails GetDetails(int i)
         {
-            var teacher = Data.teachers;
-            var student = Data.students;
+            var teacher = TeacherDal.list;
+            var student = StudentDal.list;
             var item = list.FirstOrDefault(x=>x.ClassId == i);
             if (item != default)
             {

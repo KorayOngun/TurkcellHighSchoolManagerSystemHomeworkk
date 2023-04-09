@@ -20,9 +20,9 @@ namespace TurkcellHighSchoolManagerSystem
     
         static void Main(string[] args)
         {
-            IStudentDal studentDal = new StudentDal();
-            ITeacherDal teacherDal = new TeacherDal();
-            IClassroomDal classroomDal = new ClassroomDal();
+            IStudentDal studentDal = new StudentDal(Data.students);
+            ITeacherDal teacherDal = new TeacherDal(Data.teachers);
+            IClassroomDal classroomDal = new ClassroomDal(Data.Classrooms);
     
             studentManager = new StudentManager(studentDal);
             teacherManager = new TeacherManager(teacherDal);

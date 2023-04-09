@@ -11,17 +11,17 @@ namespace TurkcellHighSchoolManagerSystem.Database.Concrete
 {
     public class StudentDal : DalRepo<Student>, IStudentDal
     {
-        public static List<Student> list = Data.students;
-        public StudentDal():base(list)
+        public static List<Student> list;
+        public StudentDal(List<Student> _list):base(_list)
         {
-            
+            list = _list;
         }
   
 
         public List<StudentDetails> studentDetails(Func<Student, bool> filter)
         {
-            var teacherList = Data.teachers;
-            var classList = Data.Classrooms;
+            var teacherList = TeacherDal.list;
+            var classList = ClassroomDal.list;
             var data = list.Where(filter)
                                  .Select(p =>
 

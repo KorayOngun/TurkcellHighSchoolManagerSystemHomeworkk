@@ -10,10 +10,10 @@ namespace TurkcellHighSchoolManagerSystem.Database.Concrete
 {
     public class TeacherDal : DalRepo<Teacher>, ITeacherDal
     {
-        public static List<Teacher> list = Data.teachers;
-        public TeacherDal():base(list) 
+        public static List<Teacher> list;
+        public TeacherDal(List<Teacher> _list):base(_list) 
         {
-              
+            list = _list;
         }
 
         public override void Update(Teacher item)
