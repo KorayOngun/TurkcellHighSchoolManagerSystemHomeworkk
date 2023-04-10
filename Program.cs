@@ -45,6 +45,10 @@ namespace TurkcellHighSchoolManagerSystem
                     item.Students.ForEach(s => Console.WriteLine($"{s.Number} {s.FirstName} {s.LastName}"));
                 }
             }
+            else
+            {
+                classManager = new ClassRoomManager(classroomDal);
+            }
 
             int i;
             while (true)
